@@ -23,7 +23,6 @@ public class Arrow : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            // Thử lấy OrcHealth trước
             var orcHealth = collision.GetComponent<OrcHealth>();
             if (orcHealth != null && orcHealth.IsAlive())
             {
@@ -32,7 +31,6 @@ public class Arrow : MonoBehaviour
                 Destroy(gameObject);
                 return;
             }
-            // Nếu không phải Orc, thử Slime
             var slimeHealth = collision.GetComponent<SlimeHealth>();
             if (slimeHealth != null && slimeHealth.IsAlive())
             {
@@ -42,7 +40,6 @@ public class Arrow : MonoBehaviour
                 return;
             }
 
-            // Nếu muốn mở rộng cho các loại quái khác, cứ thêm ở đây...
         }
         else if (collision.CompareTag("Ground") || collision.CompareTag("Wall"))
         {

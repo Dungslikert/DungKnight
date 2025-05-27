@@ -31,13 +31,12 @@ public class OrcController : MonoBehaviour
     private Transform player;
     private Rigidbody2D rb;
     private Animator animator;
-    private OrcHealth orcHealth; // Tham chiếu script máu mới
-
+    private OrcHealth orcHealth; 
     void Awake()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        orcHealth = GetComponent<OrcHealth>(); // Lấy component máu
+        orcHealth = GetComponent<OrcHealth>(); 
     }
 
     void Start()
@@ -50,13 +49,10 @@ public class OrcController : MonoBehaviour
     {
         animator.SetBool("hasTarget", isPlayerInAttackZone);
 
-        // Đã chết thì không làm gì nữa (check qua OrcHealth)
         if (orcHealth != null && !orcHealth.IsAlive()) return;
 
-        // Nếu đang tấn công thì không check chase/patrol
         if (isPlayerInAttackZone) return;
 
-        // Nếu đang trở về điểm tuần tra thì không check detect/chase
         if (isReturning)
         {
             isChasing = false;
@@ -70,7 +66,6 @@ public class OrcController : MonoBehaviour
             return;
         }
 
-        // Logic chuyển đổi trạng thái chase/patrol
         if (isChasing && !PlayerInRange())
         {
             isChasing = false;

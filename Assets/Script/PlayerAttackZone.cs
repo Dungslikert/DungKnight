@@ -5,13 +5,12 @@ public class PlayerAttackZone : MonoBehaviour
     public int attackDamage = 1;
 
     [HideInInspector] public bool isEnemyInZone = false;
-    [HideInInspector] public MonoBehaviour enemyTarget = null; // Đa năng cho nhiều loại enemy
+    [HideInInspector] public MonoBehaviour enemyTarget = null; 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
         {
-            // Ưu tiên OrcHealth, nếu không có thì lấy SlimeHealth
             var orc = other.GetComponentInParent<OrcHealth>();
             if (orc != null)
             {

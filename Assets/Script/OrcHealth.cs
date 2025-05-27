@@ -43,8 +43,7 @@ public class OrcHealth : MonoBehaviour
     {
         isInvulnerable = true;
         animator.SetTrigger("isHit");
-        if (orcController != null) orcController.enabled = false; // tuỳ nếu bạn muốn dừng AI
-        rb.linearVelocity = Vector2.zero;
+        if (orcController != null) orcController.enabled = false; 
         rb.AddForce(hitDirection.normalized * knockbackForce, ForceMode2D.Impulse);
         yield return new WaitForSeconds(hitDelay);
         if (orcController != null && isAlive) orcController.enabled = true;

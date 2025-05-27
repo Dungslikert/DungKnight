@@ -15,7 +15,6 @@ public class PlayerHealth : MonoBehaviour
     private bool isAlive = true;
     private bool isInvulnerable = false;
 
-    // Thêm biến này để gắn HealthBar trên Inspector
     public HealthBar healthBar;
 
     void Awake()
@@ -39,7 +38,6 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth < 0) currentHealth = 0;
 
-        // Cập nhật thanh máu
         if (healthBar != null)
             healthBar.SetHealth(currentHealth, maxHealth);
 
@@ -79,7 +77,7 @@ public class PlayerHealth : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
     }
 
-    // Hàm này sẽ được gọi từ Animation Event (chỉ cần public, không static)
+    // Hàm này sẽ được gọi từ Animation Event
     public void ShowGameOver()
     {
         if (gameManager != null)
@@ -91,7 +89,6 @@ public class PlayerHealth : MonoBehaviour
         return isAlive;
     }
 
-    // Hàm này dùng để hồi máu (nếu cần)
     public void Heal(int amount)
     {
         if (!isAlive) return;

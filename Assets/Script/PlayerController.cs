@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Không điều khiển nếu đang bị đánh hoặc đã chết (script bị disable bởi PlayerHealth)
+        // Không điều khiển nếu đang bị đánh hoặc đã chết
         if (!enabled) return;
 
         // Nếu đang attack thì đứng yên
@@ -55,13 +55,11 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         }
 
-        // Tấn công (F)
         if (Input.GetKeyDown(KeyCode.F))
         {
             animator.SetTrigger("attack");
         }
 
-        // Bắn cung (C)
         if (Input.GetKeyDown(KeyCode.C) && !isShooting && animator.GetBool("isAlive"))
         {
             if (currentMana > 0)
@@ -75,7 +73,6 @@ public class PlayerController : MonoBehaviour
             else
             {
                 Debug.Log("Không đủ mana để bắn cung!");
-                // Có thể thêm âm thanh, hiệu ứng báo hết mana ở đây
             }
         }
         manaRegenTimer += Time.deltaTime;
@@ -135,8 +132,6 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isJumping", isJumping);
     }
 
-    // ================== COMBO DEAL DAMAGE ==================
-
     public void Attack1DealDamage()
     {
         if (attackZone1 != null && attackZone1.isEnemyInZone && attackZone1.enemyTarget != null)
@@ -194,8 +189,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // ================== BẮN CUNG: gọi từ animation event ==================
-
     public void ShootArrow()
     {
         if (arrowPrefab == null || arrowSpawnPoint == null) return;
@@ -208,13 +201,10 @@ public class PlayerController : MonoBehaviour
         arrow.GetComponent<Arrow>().Init(shootDir);
     }
 
-    // Gọi từ animation event frame cuối Player_Shoot
     public void EndShoot()
     {
         isShooting = false;
     }
-
-    // ================== (Optional) Hồi mana qua item hoặc kỹ năng ==================
 
     public void AddMana(int amount)
     {
