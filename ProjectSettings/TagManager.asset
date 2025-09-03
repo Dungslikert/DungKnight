@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Ladder
+  - Coin
+  - Trap
+  - Enemy
+  - Key
+  - Sign
+  - Heal
+  - HealS
+  - Arrow
+  - Mana
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - Obstacle
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 2053882369
+    locked: 0
+  - name: Ground
+    uniqueID: 2203340251
+    locked: 0
+  - name: ForeGround
+    uniqueID: 3604801615
+    locked: 0
+  - name: Enemy
+    uniqueID: 2919399001
+    locked: 0
+  - name: Player
+    uniqueID: 905266167
+    locked: 0
+  - name: Item
+    uniqueID: 2798397881
+    locked: 0
+  - name: UI
+    uniqueID: 2633717291
+    locked: 0
+  m_RenderingLayers:
+  - Default
